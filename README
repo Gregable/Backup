@@ -1,0 +1,8 @@
+Simple Python Backup Script.
+
+Works with mounting encfs filesystems on top of any other filesystem (in my
+case NFS, could be removable storage or whatever).  Code written in python,
+heavy lifting performed by rsync.
+
+Configurable to use snapshots and various frequencies with a simple cron setup.
+See the docstring of backup.py for more information.
