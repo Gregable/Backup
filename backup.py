@@ -3,13 +3,7 @@ Automated Backup Script.
 Mounts an encfs directory and rsyncs a series of files to that path.  Also
 makes periodic snapshots of the encfs directory for reverting changes.
 Configurable based on file located at $HOME/.backuprc.  Triggered by cron
-commands, for example:
- * * * * * date > /home/greg/.heartbeat
- */15 * * * * python /home/greg/bin/backup.py snapshot
- 0 * * * * python /home/greg/bin/backup.py hourly
- 0 0 * * * python /home/greg/bin/backup.py daily
- 0 0 * * 0 python /home/greg/bin/backup.py weekly
- 0 0 1 * * python /home/greg/bin/backup.py monthly
+commands, see example_crontab.txt for an example:
 """
 import logging
 import os

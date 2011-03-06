@@ -1,0 +1,6 @@
+* * * * * date > /home/greg/.heartbeat
+*/15 * * * * python /home/greg/bin/backup.py snapshot
+0 * * * * python /home/greg/bin/backup.py hourly
+0 0 * * * python /home/greg/bin/backup.py daily
+0 0 * * 0 python /home/greg/bin/backup.py weekly
+0 0 1 * * python /home/greg/bin/backup.py monthly
