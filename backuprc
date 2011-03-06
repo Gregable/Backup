@@ -1,0 +1,28 @@
+# Optional, log all events
+LOG_FILE /home/greg/logs/backup.log
+
+# Optional, we try to mount this path first.  Failures halt execution.
+PRE_MOUNT /mnt/backup/
+
+# Required, password and mount point for encrypted/decrypted file systems.
+# The password can be in plaintext since this file is stored on an encrypted
+# filesystem anyway.  We aren't going for paranoid here.
+ENCFS_PASSWORD AddYourOwnPasswordHere
+ENCRYPTED_MOUNTPOINT /mnt/backup/desktop/
+# This is where we will write files unencrypted.  Must be empty, must not be
+# mounted already.
+DECRYPTED_MOUNTPOINT /mnt/encryptedbackup/
+
+# Required, rsync flags.
+RSYNC_FLAGS -CRa --delete
+
+# Number of snapshots.  Format: [type=<count>,...] e.g. hourly=12,daily=7
+SNAPSHOTS hourly=12,daily=7,weekly=2,monthly=1
+
+# List of file paths to rsync.  Any line that doesn't contain a space is a
+# file path.  Paths can be filenames or directories.  This is simply the
+# argument passed to rsync.  As a result, you can use rsync features like adding# a "./" directory to tell rsync which components of the path to sync over.
+/home/greg/./.heartbeat
+/home/greg/./src/
+/home/greg/./financial/
+/home/greg/./picasa/
